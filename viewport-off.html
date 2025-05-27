@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ビューポートメタタグ無し</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* 画面いっぱいに表示 */
+            margin: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 90%; /* コンテンツがはみ出さないように */
+            margin: 20px;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        code {
+            background-color: #e9e9e9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .warning {
+            color: #dc3545;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ビューポートメタタグ無し</h1>
+        <p class="warning">このページには <code>&lt;meta name="viewport"&gt;</code> タグがありません。</p>
+        <p>画面の論理的な幅: <code id="screenWidth"></code> px</p>
+        <p>画面の論理的な高さ: <code id="screenHeight"></code> px</p>
+        <p>ブラウザのビューポート幅: <code id="viewportWidth"></code> px</p>
+        <p>ブラウザのビューポート高さ: <code id="viewportHeight"></code> px</p>
+        <p>デバイスピクセル比 (DPR): <code id="devicePixelRatio"></code></p>
+        <p>このページをスマートフォンで開くと、テキストが小さく表示され、全体を拡大する必要があるかもしれません。</p>
+    </div>
+
+    <script>
+        function updateScreenInfo() {
+            document.getElementById('screenWidth').textContent = window.screen.width;
+            document.getElementById('screenHeight').textContent = window.screen.height;
+            document.getElementById('viewportWidth').textContent = window.innerWidth;
+            document.getElementById('viewportHeight').textContent = window.innerHeight;
+            document.getElementById('devicePixelRatio').textContent = window.devicePixelRatio.toFixed(2);
+        }
+
+        // ページロード時とウィンドウのリサイズ時に情報を更新
+        window.onload = updateScreenInfo;
+        window.onresize = updateScreenInfo;
+    </script>
+</body>
+</html>

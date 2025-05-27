@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Viewport無し (シンプル)</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #ffe0e0; /* 識別しやすいように薄い赤 */
+            color: #333;
+        }
+        h1 {
+            color: #cc0000;
+        }
+        p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        code {
+            background-color: #fdd;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ビューポートメタタグ無し</h1>
+    <p>ブラウザのビューポート幅: <code id="viewportWidth"></code> px</p>
+    <p>ブラウザのビューポート高さ: <code id="viewportHeight"></code> px</p>
+    <p>（このページはスマホで小さく表示される可能性があります）</p>
+
+    <script>
+        function updateViewportSize() {
+            document.getElementById('viewportWidth').textContent = window.innerWidth;
+            document.getElementById('viewportHeight').textContent = window.innerHeight;
+        }
+
+        window.onload = updateViewportSize;
+        window.onresize = updateViewportSize;
+    </script>
+</body>
+</html>
